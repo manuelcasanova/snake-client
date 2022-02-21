@@ -18,6 +18,14 @@ const connect = function() {
   conn.on("connect", () => {
     console.log("Successfully connected to game server");
     conn.write("Name: MCF"); //Sends initials to the snake
+    //conn.write("Move: up"); //Sends to server the command move up
+    // conn.write("Move: up"); //What happens if we send more than once successive move message? Nothing!
+    // setTimeout(() => {
+    //   conn.write("Move: up")
+    // }, 50) //What happens if we delay each message instead? Something!
+    // setInterval(() => {
+    //   conn.write("Move: up")
+    // }, 300); //What happens if I use setInterval in order to continuously move the snake up?
   });
 
   return conn;
