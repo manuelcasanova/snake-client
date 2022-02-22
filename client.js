@@ -28,6 +28,10 @@ const connect = function() {
     // }, 300); //What happens if I use setInterval in order to continuously move the snake up?
   });
 
+  conn.on("data", (data) => {
+    console.log(data);
+  });
+
   return conn;
 };
 console.log("Just a moment, you are getting connected...");
