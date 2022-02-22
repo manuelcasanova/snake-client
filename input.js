@@ -1,5 +1,6 @@
 const { stdout } = require("process");
 const { connect } = require("./client");
+const { UP, DOWN, LEFT, RIGHT } = require("./constants");
 
 let connection; //Stores the active TCP connection object. Otherwise the input module cannot send messages to the server.
 
@@ -14,24 +15,17 @@ stdin.on("data", handleUserInput); //This is an event listener. The function wil
 return stdin;
 };
 
-//Bind the movement commands to the w a s d keys
-
-const w = "Move: up";
-const a = "Move: left";
-const s = "Move: down";
-const d = "Move: right";
-
 const handleUserInput = function (key) {
   if (key === '\u0003') {
     process.exit();
   } else if (key === "w") {
-    connection.write(w) //stdout.write(w) printed "Move: up"
+    connection.write(UP) //stdout.write(w) printed "Move: up"
   } else if (key === "a") {
-    connection.write(a) 
+    connection.write(LEFT) 
   } else if (key === "s") {
-    connection.write(s) 
+    connection.write(DOWN) 
   } else if (key === "d") {
-    connection.write(d) 
+    connection.write(RIGHT) 
   } else if (key === "m") {
     connection.write("Say: Hello, I'm a message!")
   }
