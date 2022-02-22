@@ -1,6 +1,6 @@
 const net = require("net");
 //const { builtinModules } = require("module");
-
+const { IP, PORT } = require("./constants");
 
 const connect = function() {
   const conn = net.createConnection({
