@@ -24,13 +24,13 @@ const handleUserInput = function (key) {
   if (key === '\u0003') {
     process.exit();
   } else if (key === "w") {
-    stdout.write(w) 
+    connection.write(w) //stdout.write(w) printed "Move: up"
   } else if (key === "a") {
-    stdout.write(a) 
+    connection.write(a) 
   } else if (key === "s") {
-    stdout.write(s) 
+    connection.write(s) 
   } else if (key === "d") {
-    stdout.write(d) 
+    connection.write(d) 
   }
 
 
