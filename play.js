@@ -1,6 +1,12 @@
 const {connect} = require("./client");
 connect();
 
+const handleUserInput = function (key) {
+    if (key === '\u0003') {
+      process.exit();
+    } 
+};
+
 const setupInput = function () {
   const stdin = process.stdin;
   stdin.setRawMode(true);
@@ -9,5 +15,7 @@ const setupInput = function () {
   stdin.on("data", handleUserInput); //This is an event listener. The function will work when receives input from the keyboard.
   return stdin;
 };
+
+setupInput(); //call the function
 
 
