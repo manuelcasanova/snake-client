@@ -1,4 +1,5 @@
 const { stdout } = require("process");
+const { connect } = require("./client");
 
 let connection; //Stores the active TCP connection object. Otherwise the input module cannot send messages to the server.
 
@@ -31,6 +32,8 @@ const handleUserInput = function (key) {
     connection.write(s) 
   } else if (key === "d") {
     connection.write(d) 
+  } else if (key === "m") {
+    connection.write("Say: Hello, I'm a message!")
   }
 
 
